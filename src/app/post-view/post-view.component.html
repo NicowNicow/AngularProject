@@ -1,1 +1,12 @@
-<p>post-view works!</p>
+<app-post></app-post>
+
+<div>
+    <button type="button" onclick="alert('Pour retourner au menu principal!')">Retour</button>
+    <button type="button" onclick="alert('Pour créer une réponse!')">Répondre</button>
+</div>
+
+
+<app-reponse *ngFor="let reponse of reponses"
+                [nomAuteur]="reponse.nomAuteur"
+                [txtReponse]="reponse.txtReponse">
+</app-reponse>

@@ -1,0 +1,15 @@
+div{
+    display:flex;
+    flex-direction:column;
+    align-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#Title{
+    width:20%
+}
+
+#Post{
+    height:800%
+}

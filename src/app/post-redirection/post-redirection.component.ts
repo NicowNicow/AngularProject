@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Url } from 'url';
-import { ListPostsComponent } from '../list-posts/list-posts.component';
+import { MainMenuViewComponent } from '../main-menu-view/main-menu-view.component';
 
 @Component({
   selector: 'app-post-redirection',

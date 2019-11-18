@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
+  titre = 'TitreTest';
+  auteur = 'RealPerson';
+  post = 'Lorem Ipsum mes couilles mickey';
+
   constructor() { }
 
   ngOnInit() {

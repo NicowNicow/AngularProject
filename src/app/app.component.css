@@ -10,3 +10,14 @@ footer{
     justify-content:center;
     align-content:flex-end;
 }
+
+div{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+button{
+    padding-right: 10px;
+}
