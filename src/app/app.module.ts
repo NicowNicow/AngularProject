@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
@@ -14,6 +15,13 @@ import { CreationPostViewComponent } from './creation-post-view/creation-post-vi
 import { PostViewComponent } from './post-view/post-view.component';
 import { ReponseViewComponent } from './reponse-view/reponse-view.component';
 import { ChatComponent } from './chat/chat.component';
+
+const appRoutes: Routes = [
+  { path: 'creationPost', component: CreationPostViewComponent },
+  { path: 'postView', component: PostViewComponent },
+  { path: 'reponseView', component: ReponseViewComponent },
+  { path: '', component: MainMenuViewComponent }
+];
 
 @NgModule({
   declarations: [
@@ -31,7 +39,8 @@ import { ChatComponent } from './chat/chat.component';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ChatService],
   bootstrap: [AppComponent]

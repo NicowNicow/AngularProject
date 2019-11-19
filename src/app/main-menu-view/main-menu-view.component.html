@@ -1,4 +1,4 @@
-<button type="button" onclick="alert('Pour créer un nouveau post!')">Nouveau Post</button>
+<button class="nav-item nav-link-edit" [routerLink]="['creationPost']">Nouveau Post</button >
 
 <app-post-redirection  *ngFor = "let post of posts" 
         [nomPost]="post.nomPost"
