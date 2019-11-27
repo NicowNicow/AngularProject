@@ -40,15 +40,15 @@ export class ChatService {
 
   }
 
-  SendMessage(message: string) {
-    this.socket.emit('message', message);
+  SendMessage(titre: string, message: string) {
+    this.socket.emit('post', titre, message);
   }
 
 // filtrer les spam message avec dinstinct (check rxjs doc)
 
 public onMessage(): Observable<Message> { // fonction onMessage de return Observable
   return new Observable<Message>(observer => {
-    this.socket.on('message', (data: Message) => { // sur event 'message' effectue la fonction () qui prend data de type any en entrée
+    this.socket.on('post', (data: Message) => { // sur event 'message' effectue la fonction () qui prend data de type any en entrée
       return observer.next(data);
     });
   });

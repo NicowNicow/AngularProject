@@ -1,7 +1,12 @@
-<app-new-post></app-new-post>
+<div>
+    <label for="Title">Titre du post:</label>      <!-- Création d'une case d'entrée pour un montant -->
+    <input type="text" name="Title" id="Title" placeholder="Titre" [(ngModel)]='Titre'>
+    <label for="Post">Contenu du post:</label>      <!-- Création d'une case d'entrée pour un montant -->
+    <textarea rows="20" cols="50" name="Post" id="Post" placeholder="Post très interessant" [(ngModel)]='Post'></textarea>
+</div>
 
 <div>
-    <button class="nav-item nav-link-edit" [routerLink]="['']">Retour</button > <!-- Pour le moment il execute aucune action a part ramener au menu principal-->
-    <button class="nav-item nav-link-edit" [routerLink]="['']">Envoyer</button >
+    <button class="nav-item nav-link-edit" [routerLink]="['']">Retour</button > 
+    <button class="nav-item nav-link-edit" [routerLink]="['']" (click)='OnButtonPress(Titre, Post)'>Envoyer</button >
 </div>
     

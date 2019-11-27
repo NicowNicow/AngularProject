@@ -6,17 +6,20 @@ import { PostRedirectionComponent } from '../post-redirection/post-redirection.c
   templateUrl: './main-menu-view.component.html',
   styleUrls: ['./main-menu-view.component.css']
 })
-export class MainMenuViewComponent implements OnInit {
 
-  posts = [
-    {nomPost: 'ValeurTest1', nomAuteur: 'RealPerson1', nbrReponses: '10'},
-    {nomPost: 'ValeurTest2', nomAuteur: 'RealPerson2', nbrReponses: '2'},
-    {nomPost: 'ValeurTest3', nomAuteur: 'RealPerson3', nbrReponses: '7'},
-  ];
+export class MainMenuViewComponent implements OnInit {
+  posts = [];
 
   constructor() { }
 
   ngOnInit() {
+    for (let i = 0; i < localStorage.length; i++) {
+        // tslint:disable-next-line: prefer-const
+        let key = localStorage.key(i);
+        // tslint:disable-next-line: prefer-const
+        let value = JSON.parse(localStorage.getItem(key));
+        this.posts.push({nomPost: value.nom, nomAuteur: 'RealPerson1'});
+}
   }
 
 }

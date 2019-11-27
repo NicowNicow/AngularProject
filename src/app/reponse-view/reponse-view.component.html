@@ -1,8 +1,11 @@
-<app-ecrire-reponse></app-ecrire-reponse>
+<div>
+    <label for="Reponse">Contenu de la réponse:</label>      <!-- Création d'une case d'entrée pour un montant -->
+    <textarea rows="10" cols="50" name="Reponse" id="Reponse" placeholder="Réponse Formidable" [(ngModel)]="Content"></textarea>
+</div>
 
 <div>
     <button class="nav-item nav-link-edit" [routerLink]="['../postView']">Retour</button >
-    <button class="nav-item nav-link-edit" [routerLink]="['../postView']">Envoyer</button >
+    <button class="nav-item nav-link-edit" [routerLink]="['../postView']" (click)='OnButtonPress(Content)'>Envoyer</button >
 </div>
     
 

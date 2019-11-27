@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ChatService } from '../chat.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -9,7 +9,6 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class ChatComponent implements OnInit, OnDestroy {
 
-  @Input() Content: string;
   data: Observable<any>;
   sub: Subscription;
 
@@ -18,23 +17,23 @@ export class ChatComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.data = this.chatService.onMessage();
     this.sub = this.data.subscribe({
-      next: value => this.test(value),
+      next: value => this.Affiche(value),
       error: err => console.error(err),
       complete: () => console.log('DONE')
     });
   }
 
-  OnButtonPress(message: string) {
-    this.chatService.SendMessage(message);
+  OnButtonPress(titre: string, message: string) {
+    this.chatService.SendMessage(titre, message);
   }
+
 
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
-
-  test(valeur: any) {
-    console.log(valeur.pseudo);
-    console.log(valeur.message);
+  Affiche(valeur: any) {
+    console.log(valeur.Titre);
+    console.log(valeur.post);
   }
 
 }

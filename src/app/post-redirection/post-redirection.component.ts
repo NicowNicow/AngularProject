@@ -12,7 +12,6 @@ export class PostRedirectionComponent implements OnInit {
 
   @Input() nomPost: string;
   @Input() nomAuteur: string;
-  @Input() nbrReponses: string;
 
 
   constructor() { }

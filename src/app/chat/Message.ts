@@ -1,6 +1,8 @@
 export class Message {
 
+    Titre: string;
     pseudo: string;
-    message: string;
+    post: string;
     status: number;
+
 }
