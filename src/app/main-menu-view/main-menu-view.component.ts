@@ -8,7 +8,7 @@ import { PostRedirectionComponent } from '../post-redirection/post-redirection.c
 })
 
 export class MainMenuViewComponent implements OnInit {
-  posts = [];
+  post = [];
 
   constructor() { }
 
@@ -18,7 +18,7 @@ export class MainMenuViewComponent implements OnInit {
         let key = localStorage.key(i);
         // tslint:disable-next-line: prefer-const
         let value = JSON.parse(localStorage.getItem(key));
-        this.posts.push({nomPost: value.nom, nomAuteur: 'RealPerson1'});
+        this.post.push(value.nom);
 }
   }
 

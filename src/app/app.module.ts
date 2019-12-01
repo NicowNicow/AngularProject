@@ -14,6 +14,7 @@ import { CreationPostViewComponent } from './creation-post-view/creation-post-vi
 import { PostViewComponent } from './post-view/post-view.component';
 import { ReponseViewComponent } from './reponse-view/reponse-view.component';
 import { ChatComponent } from './chat/chat.component';
+import { DataStorageService } from './data-storage.service';
 
 const appRoutes: Routes = [
   { path: 'creationPost', component: CreationPostViewComponent },
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [ChatService],
+  providers: [ChatService, DataStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

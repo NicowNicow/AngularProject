@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Url } from 'url';
 import { MainMenuViewComponent } from '../main-menu-view/main-menu-view.component';
+import { DataStorageService } from '../data-storage.service';
 
 @Component({
   selector: 'app-post-redirection',
@@ -10,13 +11,14 @@ import { MainMenuViewComponent } from '../main-menu-view/main-menu-view.componen
 
 export class PostRedirectionComponent implements OnInit {
 
-  @Input() nomPost: string;
-  @Input() nomAuteur: string;
+  @Input() nomPostTemp: string;
 
-
-  constructor() { }
+  constructor(public dataService: DataStorageService) { }
 
   ngOnInit() {
   }
 
+  getKeyPost(): void {
+    this.dataService.findPostFromTitle(this.nomPostTemp);
+  }
 }

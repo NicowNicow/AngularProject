@@ -8,7 +8,6 @@ import { PostViewComponent } from '../post-view/post-view.component';
 })
 export class ReponseComponent implements OnInit {
 
-  @Input() nomAuteur: string;
   @Input() txtReponse: string;
 
   constructor() { }

@@ -1,6 +1,3 @@
 <section>
-    <a routerLink="postView"><h4>{{ nomPost }}</h4></a>
-    <div>
-        <h5>Par {{ nomAuteur }}</h5>
-    </div>
+    <button routerLink="postView" (click)="getKeyPost()"><h4>{{ nomPostTemp }}</h4></button>
 </section>

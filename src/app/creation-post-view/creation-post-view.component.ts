@@ -41,10 +41,8 @@ export class CreationPostViewComponent implements OnInit, OnDestroy {
   let stringNumberKeyPost = this.dataStorage.keyPost.split('P');
   // tslint:disable-next-line: prefer-const
   let numberKeyPost = parseInt(stringNumberKeyPost[1], 10) + 1;
-  alert(numberKeyPost);
   this.keyPost = 'P' + numberKeyPost.toString();
   this.dataStorage.getPostKey(this.keyPost);
-  alert(this.keyPost);
 }
 
   OnButtonPress(titre: string, message: string) {
@@ -59,6 +57,7 @@ export class CreationPostViewComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.sub.unsubscribe();
   }
+
   Affiche(valeur: any) {
     console.log(valeur.Titre);
     console.log(valeur.post);

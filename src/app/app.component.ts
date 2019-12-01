@@ -7,6 +7,7 @@ import { ChatService } from './chat.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   title = 'projet-angular';
 
@@ -14,8 +15,4 @@ export class AppComponent {
     this.chatService.initSocket();
   }
 
-  loginbutton() {
-    alert('You are connected as NicoPC');
-    this.chatService.login('NicoPC');
-  }
 }
