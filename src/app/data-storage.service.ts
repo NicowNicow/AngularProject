@@ -11,8 +11,8 @@ export class DataStorageService {
   keyPost = 'P0';
   keyReponse = 'R0';
 
-  keyPostAffichage: string;
-  keyReponseAffichage: string[];
+  private keyPostAffichage: string;
+  private keyReponseAffichage: string[];
 
   catchKeyPost: Observable<any>;
   catchKeyReponse: Observable<any>;
@@ -43,20 +43,36 @@ export class DataStorageService {
     this.keyReponse = data;
   }
 
-  findPostFromTitle(titrePost: string) { // A Implémenter, Reste aussi l'affichage des posts et les réponses à faire
+  findPostFromTitle(titrePost: string) {
     this.keyPostAffichage = '';
-    alert(titrePost);
     for (let index = 0; index < localStorage.length; index++) {
       // tslint:disable-next-line: prefer-const
       let key = localStorage.key(index);
       // tslint:disable-next-line: prefer-const
       let value = JSON.parse(localStorage.getItem(key));
-      if ((titrePost.localeCompare(value.nom) === 0) && ('P'.localeCompare(key.charAt(0)))) {
+      if ((titrePost.localeCompare(value.nom) === 0) && ('P'.localeCompare(key.charAt(0))  === 0)) {
         this.keyPostAffichage = key;
+        alert(this.keyPostAffichage);
         break;
       }
     }
+  }
+
+  getPostTitre(key: string): string {
     alert(this.keyPostAffichage);
+    // tslint:disable-next-line: prefer-const
+    let post = JSON.parse(localStorage.getItem(key));
+    return(post.name);
+  }
+
+  getPostTexte(key: string): string {
+    // tslint:disable-next-line: prefer-const
+    let post = JSON.parse(localStorage.getItem(key));
+    return(post.post);
+  }
+
+  getKeyPostAffichage() {
+    return this.keyPostAffichage;
   }
 
   findReponsesFromPostTitle() {

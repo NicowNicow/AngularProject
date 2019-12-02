@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStorageService } from '../data-storage.service';
 
 @Component({
   selector: 'app-post',
@@ -7,13 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  titre = 'TitreTest';
-  auteur = 'RealPerson';
-  post = 'Lorem Ipsum mes couilles mickey';
+  titre: string;
+  post: string;
 
-  constructor() { }
+  constructor(public dataService: DataStorageService) { }
 
   ngOnInit() {
+    this.titre = this.dataService.getPostTitre(this.dataService.getKeyPostAffichage());
+    this.post = this.dataService.getPostTexte(this.dataService.getKeyPostAffichage());
   }
 
 }
