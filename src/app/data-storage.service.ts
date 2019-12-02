@@ -52,17 +52,15 @@ export class DataStorageService {
       let value = JSON.parse(localStorage.getItem(key));
       if ((titrePost.localeCompare(value.nom) === 0) && ('P'.localeCompare(key.charAt(0))  === 0)) {
         this.keyPostAffichage = key;
-        alert(this.keyPostAffichage);
         break;
       }
     }
   }
 
   getPostTitre(key: string): string {
-    alert(this.keyPostAffichage);
     // tslint:disable-next-line: prefer-const
     let post = JSON.parse(localStorage.getItem(key));
-    return(post.name);
+    return(post.nom);
   }
 
   getPostTexte(key: string): string {
