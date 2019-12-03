@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ReponseComponent } from '../reponse/reponse.component';
+import { DataStorageService } from '../data-storage.service';
 
 @Component({
   selector: 'app-post-view',
@@ -8,15 +9,23 @@ import { ReponseComponent } from '../reponse/reponse.component';
 })
 export class PostViewComponent implements OnInit {
 
-   reponses = [
-     {nomAuteur: 'RealPerson1', txtReponse: 'This really be a bruh moment'},
-     {nomAuteur: 'RealPerson2', txtReponse: 'We live in a society'},
-     {nomAuteur: 'RealPerson3', txtReponse: 'Bottom text'},
-   ];
+  private reponses = [];
+  private reponsesKey = [];
 
-  constructor() { }
+  constructor(private dataStorage: DataStorageService) { }
 
   ngOnInit() {
+    this.dataStorage.findReponsesFromPostTitle(this.dataStorage.getPostTitre(this.dataStorage.getKeyPostAffichage()));
+    this.reponsesKey = this.dataStorage.getKeyReponseAffichage();
+    // tslint:disable-next-line: prefer-for-of
+    for (let index = 0; index < localStorage.length; index++) {
+      // tslint:disable-next-line: prefer-for-of
+      for (let index2 = 0; index2 < this.reponsesKey.length; index2++) {
+        if (this.reponsesKey[index2].localeCompare(localStorage.key(index)) === 0) {
+          this.reponses.push({txt: JSON.parse(localStorage.getItem(this.reponsesKey[index2])).reponse});
+        }
+      }
+    }
   }
 
 }

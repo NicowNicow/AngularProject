@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { PostViewComponent } from '../post-view/post-view.component';
+import { DataStorageService } from '../data-storage.service';
 
 @Component({
   selector: 'app-reponse',
@@ -10,7 +11,7 @@ export class ReponseComponent implements OnInit {
 
   @Input() txtReponse: string;
 
-  constructor() { }
+  constructor(private dataStorage: DataStorageService) { }
 
   ngOnInit() {
   }

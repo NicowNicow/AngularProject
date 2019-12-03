@@ -15,7 +15,7 @@ export class ChatService {
 
   pseudo = '';
 
-  serviceUrl = 'DESKTOP-BRC6SOT:3000';
+  serviceUrl = 'DESKTOP-GERBRDN:3000';
 
   Obj: Observable<Message>;
 

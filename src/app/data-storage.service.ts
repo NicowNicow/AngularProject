@@ -73,8 +73,21 @@ export class DataStorageService {
     return this.keyPostAffichage;
   }
 
-  findReponsesFromPostTitle() {
+  getKeyReponseAffichage() {
+    return this.keyReponseAffichage;
+  }
 
+  findReponsesFromPostTitle(titrePost: string) {
+    this.keyReponseAffichage = [];
+    for (let index = 0; index < localStorage.length; index++) {
+      // tslint:disable-next-line: prefer-const
+      let key = localStorage.key(index);
+      // tslint:disable-next-line: prefer-const
+      let value = JSON.parse(localStorage.getItem(key));
+      if ((titrePost.localeCompare(value.nom) === 0) && ('R'.localeCompare(key.charAt(0))  === 0)) {
+        this.keyReponseAffichage.push(key);
+      }
+    }
   }
 }
 
